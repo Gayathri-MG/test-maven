@@ -19,5 +19,17 @@ pipeline {
             }
         }
     }
+	  stage('Build') {
+		steps {
+			script {
+				sh '''
+				maven --version
+				cd ${WORKSPACE}
+				mvn -Dmaven.test.skip -Pcomplete-build clean install
+				'''
+			}
+		}
+	}
+		
   }
 }
