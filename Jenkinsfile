@@ -23,7 +23,7 @@ pipeline {
 		steps {
 			script {
 				sh '''
-				maven --version
+				mvn --version
 				cd ${WORKSPACE}
 				mvn -Dmaven.test.skip -Pcomplete-build clean install
 				'''
