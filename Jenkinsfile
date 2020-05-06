@@ -30,16 +30,10 @@ pipeline {
 			}
 		}
 	}
-	  stage('Upload') {
+	  stage('s3Upload') {
 		  steps{
-        	dir('/var/lib/jenkins/workspace/Maven-build/target/'){
-            pwd(); //Log current directory
-            withAWS(region:'us-west-2',credentialsID:'123456') {
-                 def identity=awsIdentity();//Log AWS credentials
-                // Upload files from working directory 'dist' in your project workspace
-                s3Upload(bucket:"25march2020", workingDir:'target', includePathPattern:'**/*');
-            }
-        }
-		  }}
+			  s3Upload(file:'	java-fullstack-1.0-SNAPSHOT.jar', bucket:'25march2020', path:'${WORKSPACE}/target/')
+		  }
+  }
   }
 }
