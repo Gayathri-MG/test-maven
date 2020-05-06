@@ -32,7 +32,7 @@ pipeline {
 	}
 	  stage('s3Upload') {
 		  steps{
-			  s3Upload(file:'	java-fullstack-1.0-SNAPSHOT.jar', bucket:'25march2020', path:'${WORKSPACE}/target/')
+			  s3Upload(file: 'java-fullstack-1.0-SNAPSHOT.jar', bucket: '25march2020', path:'${WORKSPACE}/target/')
 		  }
   }
   }
