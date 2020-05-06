@@ -44,6 +44,7 @@ pipeline {
                 s3Upload(bucket:"25march2020", workingDir:'target', includePathPattern:'**/*');
             }
 
-        }	
+        }
+	  }
   }
 }
