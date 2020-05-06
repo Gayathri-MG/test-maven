@@ -31,6 +31,7 @@ pipeline {
 		}
 	}
 	  stage('Upload') {
+		  steps{
         	dir('/var/lib/jenkins/workspace/Maven-build/target/'){
             pwd(); //Log current directory
             withAWS(region:'us-west-2',credentialsID:'123456') {
@@ -39,6 +40,6 @@ pipeline {
                 s3Upload(bucket:"25march2020", workingDir:'target', includePathPattern:'**/*');
             }
         }
-	  }
+		  }}
   }
 }
