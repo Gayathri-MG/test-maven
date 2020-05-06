@@ -31,19 +31,13 @@ pipeline {
 		}
 	}
 	  stage('Upload') {
-
         	dir('/var/lib/jenkins/workspace/Maven-build/target/'){
-
             pwd(); //Log current directory
-
             withAWS(region:'us-west-2',credentialsID:'123456') {
-
                  def identity=awsIdentity();//Log AWS credentials
-
                 // Upload files from working directory 'dist' in your project workspace
                 s3Upload(bucket:"25march2020", workingDir:'target', includePathPattern:'**/*');
             }
-
         }
 	  }
   }
